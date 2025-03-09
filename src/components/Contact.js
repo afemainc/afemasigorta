@@ -129,26 +129,26 @@ const Contact = () => {
               <InfoIcon>📍</InfoIcon>
               <InfoContent>
                 <InfoTitle>Adres</InfoTitle>
-                <InfoText>İstanbul, Türkiye</InfoText>
+                <InfoText>Mersin, Türkiye</InfoText>
               </InfoContent>
             </InfoItem>
             <InfoItem>
               <InfoIcon>📱</InfoIcon>
               <InfoContent>
                 <InfoTitle>Telefon</InfoTitle>
-                <InfoText>+90 555 123 4567</InfoText>
+                <InfoText>+90 535 431 26 98</InfoText>
               </InfoContent>
             </InfoItem>
             <InfoItem>
               <InfoIcon>✉️</InfoIcon>
               <InfoContent>
                 <InfoTitle>E-posta</InfoTitle>
-                <InfoText>info@afemasigorta.com</InfoText>
+                <InfoText>afemasigorta@gmail.com</InfoText>
               </InfoContent>
             </InfoItem>
             <MapContainer>
               <MapIframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3008.944680773634!2d28.9783738!3d41.034957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2zVGFrc2ltLCBCZXlvxJ9sdS_EsHN0YW5idWw!5e0!3m2!1str!2str!4v1659887777777!5m2!1str!2str" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d315.9232373846644!2d34.31375008746294!3d36.60551376524431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x23e229e9ab061c13%3A0x157219a22bc28b1!2sAFEMA%20S%C4%B0GORTA%20S%C4%B0GORTAMTR!5e0!3m2!1sen!2str!4v1741548372038!5m2!1sen!2str" 
                 allowFullScreen="" 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"

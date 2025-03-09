@@ -127,13 +127,13 @@ const Footer = () => {
           <FooterColumn>
             <FooterTitle>İletişim</FooterTitle>
             <FooterText>
-              İstanbul, Türkiye
+              Mersin, Türkiye
             </FooterText>
             <FooterText>
-              info@afemasigorta.com
+              afemeasigorta@gmail.com
             </FooterText>
             <FooterText>
-              +90 555 123 4567
+              +90 535 431 26 98
             </FooterText>
           </FooterColumn>
         </FooterGrid>
