@@ -130,7 +130,7 @@ const Footer = () => {
               Mersin, Türkiye
             </FooterText>
             <FooterText>
-              afemeasigorta@gmail.com
+              afemasigorta@gmail.com
             </FooterText>
             <FooterText>
               +90 535 431 26 98
