@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
 const FooterContainer = styled.footer`
   background-color: var(--secondary);
@@ -98,10 +99,10 @@ const Footer = () => {
               2008 yılından bu yana müşterilerimize profesyonel ve anlık sigorta çözümleri sunuyoruz.
             </FooterText>
             <SocialLinks>
-              <SocialIcon href="#" aria-label="Facebook">f</SocialIcon>
-              <SocialIcon href="#" aria-label="Twitter">t</SocialIcon>
-              <SocialIcon href="#" aria-label="Instagram">i</SocialIcon>
-              <SocialIcon href="#" aria-label="LinkedIn">l</SocialIcon>
+              <SocialIcon href="#" aria-label="Facebook"><FaFacebookF /></SocialIcon>
+              <SocialIcon href="#" aria-label="Twitter"><FaTwitter /></SocialIcon>
+              <SocialIcon href="https://www.instagram.com/afemasigorta/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></SocialIcon>
+              <SocialIcon href="#" aria-label="LinkedIn"><FaLinkedinIn /></SocialIcon>
             </SocialLinks>
           </FooterColumn>
           
@@ -130,10 +131,14 @@ const Footer = () => {
               Mersin, Türkiye
             </FooterText>
             <FooterText>
-              afemasigorta@gmail.com
+              <a href="mailto:afemasigorta@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                afemasigorta@gmail.com
+              </a>
             </FooterText>
             <FooterText>
-              +90 535 431 26 98
+              <a href="tel:+905354312698" style={{ color: 'inherit', textDecoration: 'none' }}>
+                +90 535 431 26 98
+              </a>
             </FooterText>
           </FooterColumn>
         </FooterGrid>
