@@ -22,7 +22,10 @@ const NavContainer = styled.div`
 const Logo = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary);
+`;
+
+const LogoText = styled.span`
+  color: ${props => props.color};
 `;
 
 const NavLinks = styled.nav`
@@ -84,7 +87,10 @@ const Header = () => {
     <HeaderContainer scrolled={scrolled}>
       <div className="container">
         <NavContainer>
-          <Logo>AFEMA Sigorta</Logo>
+          <Logo>
+            <LogoText color="#282f68">AFEMA</LogoText>{' '}
+            <LogoText color="#e8582e">Sigorta</LogoText>
+          </Logo>
           <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? '✕' : '☰'}
           </MenuButton>

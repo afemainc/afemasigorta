@@ -17,8 +17,10 @@ const SectionTitle = styled.h2`
 
 const ServicesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 `;
 
 const ServiceCard = styled.div`
@@ -53,26 +55,44 @@ const Services = () => {
     {
       id: 1,
       icon: "🚗",
-      title: "Araç Sigortası",
-      description: "Aracınızı en iyi şekilde koruma altına alın. Trafik sigortası ve kasko seçenekleriyle güvende olun."
+      title: "Trafik Sigortası",
+      description: "Zorunlu trafik sigortası ile üçüncü şahıslara karşı güvence altında olun."
     },
     {
       id: 2,
-      icon: "🏥",
-      title: "Sağlık Sigortası",
-      description: "Tamamlayıcı sağlık sigortası ile sağlık hizmetlerine daha kolay erişim sağlayın."
+      icon: "🛡️",
+      title: "Kasko Sigortası",
+      description: "Aracınızı her türlü riske karşı tam koruma altına alın."
     },
     {
       id: 3,
       icon: "🏠",
-      title: "Konut Sigortası",
-      description: "Evinizi ve değerli eşyalarınızı doğal afetlere ve diğer risklere karşı güvence altına alın."
+      title: "DASK Sigortası",
+      description: "Doğal Afet Sigortaları Kurumu ile evinizi depreme karşı güvence altına alın."
     },
     {
       id: 4,
+      icon: "⚕️",
+      title: "Tamamlayıcı Sağlık Sigortası",
+      description: "Özel hastanelerde fark ödemeden kaliteli sağlık hizmeti alın."
+    },
+    {
+      id: 5,
+      icon: "✈️",
+      title: "Seyahat Sağlık Sigortası",
+      description: "Yurt içi ve yurt dışı seyahatlerinizde güvende olun."
+    },
+    {
+      id: 6,
       icon: "🏢",
       title: "İşyeri Sigortası",
-      description: "İşletmenizi beklenmedik risklere karşı koruyun, işinizi kesintisiz sürdürün."
+      description: "İşletmenizi her türlü riske karşı koruma altına alın."
+    },
+    {
+      id: 7,
+      icon: "💰",
+      title: "Bireysel Emeklilik",
+      description: "Geleceğiniz için bugünden birikim yapın, devlet katkısından faydalanın."
     }
   ];
 
