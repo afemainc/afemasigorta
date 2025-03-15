@@ -71,9 +71,6 @@ Herhangi bir soru veya öneriniz için:
 - 📧 Email: afemasigorta@gmail.com
 - 📱 Telefon: +90 535 431 26 98
 
-## Lisans
-
-Bu proje [MIT lisansı](LICENSE) altında lisanslanmıştır.
 
 ---
-© 2024 AFEMA Sigorta. Tüm hakları saklıdır.
+© 2025 AFEMA Sigorta. Tüm hakları saklıdır.
