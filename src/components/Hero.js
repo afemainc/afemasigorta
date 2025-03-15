@@ -1,40 +1,55 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-scroll';
+import Partners from './Partners';
+import styles from './Hero.module.css';
 
 const HeroSection = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  background-color: var(--light);
+  flex-direction: column;
+  background-color: transparent;
   position: relative;
   padding-top: 80px;
   overflow: hidden;
 `;
 
-const AnimatedBackground = styled.canvas`
-  position: absolute;
-  top: 0;
-  left: 0;
+const MainContent = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
   width: 100%;
-  height: 100%;
-  z-index: 1;
+  z-index: 3;
 `;
 
 const ContentWrapper = styled.div`
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const HeroContent = styled.div`
   max-width: 600px;
   position: relative;
+  text-align: left;
+  padding: 0 20px;
+  margin-left: 40px;
 `;
 
 const Title = styled.h1`
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  color: #282f68;
+  color: white;
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
   
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -43,9 +58,12 @@ const Title = styled.h1`
 
 const Subtitle = styled.p`
   font-size: 1.25rem;
-  color: var(--gray);
+  color: white;
   margin-bottom: 2rem;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  text-align: left;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  font-weight: 500;
 `;
 
 const CTAButton = styled.a`
@@ -73,128 +91,82 @@ const HeroImage = styled.div`
   background-image: url('/api/placeholder/600/500');
   background-size: cover;
   background-position: center;
-  z-index: 2;
+  z-index: 3;
   
   @media (max-width: 1024px) {
     display: none;
   }
 `;
 
+const PartnersWrapper = styled.div`
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+`;
+
 const Hero = () => {
-  const canvasRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    '/images/hero/car-insurance.webp',
+    '/images/hero/health-insurance.webp',
+    '/images/hero/earthquake-insurance.webp'
+  ];
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let particles = [];
+    const timer = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    }, 5000); // Change slide every 5 seconds
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.3;
-        this.vy = (Math.random() - 0.5) * 0.3;
-        this.radius = Math.random() * 3 + 2;
-        this.color = Math.random() < 0.5 ? '#282f6855' : '#e8582e55';
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
-        if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-      }
-    }
-
-    const init = () => {
-      particles = [];
-      const numberOfParticles = Math.min(window.innerWidth * 0.15, 120);
-      for (let i = 0; i < numberOfParticles; i++) {
-        particles.push(new Particle());
-      }
-    };
-
-    const connectParticles = () => {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 200) {
-            ctx.beginPath();
-            ctx.strokeStyle = particles[i].color.replace('55', '40');
-            ctx.lineWidth = 1 * (1 - distance / 200);
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, '#282f6808');
-      gradient.addColorStop(1, '#e8582e08');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-      
-      connectParticles();
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    resizeCanvas();
-    init();
-    animate();
-
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      init();
-    });
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', resizeCanvas);
-    };
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <HeroSection id="home">
-      <AnimatedBackground ref={canvasRef} />
-      <ContentWrapper>
-        <div className="container">
+      <div className={styles.heroContainer}>
+        {slides.map((slide, index) => (
+          <div
+            key={slide}
+            className={`${styles.heroSlide} ${index === currentSlide ? styles.active : ''}`}
+            style={{ backgroundImage: `url(${slide})` }}
+          />
+        ))}
+        <div className={styles.slideIndicators}>
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.indicator} ${index === currentSlide ? styles.activeIndicator : ''}`}
+              onClick={() => setCurrentSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+      <MainContent>
+        <ContentWrapper>
           <HeroContent>
             <Title>Güvenilir Sigorta Çözümleri</Title>
             <Subtitle>
               AFEMA Sigorta olarak, 2008 yılından bu yana müşterilerimize profesyonel ve anlık sigorta çözümleri sunuyoruz.
             </Subtitle>
-            <CTAButton href="#contact">Bize Ulaşın</CTAButton>
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+            >
+              <CTAButton>Bize Ulaşın</CTAButton>
+            </Link>
           </HeroContent>
-        </div>
-      </ContentWrapper>
-      <HeroImage />
+        </ContentWrapper>
+        <HeroImage />
+      </MainContent>
+      <PartnersWrapper>
+        <Partners />
+      </PartnersWrapper>
     </HeroSection>
   );
 };
