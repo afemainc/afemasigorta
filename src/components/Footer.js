@@ -99,10 +99,8 @@ const Footer = () => {
               2008 yılından bu yana müşterilerimize profesyonel ve anlık sigorta çözümleri sunuyoruz.
             </FooterText>
             <SocialLinks>
-              <SocialIcon href="#" aria-label="Facebook"><FaFacebookF /></SocialIcon>
-              <SocialIcon href="#" aria-label="Twitter"><FaTwitter /></SocialIcon>
+              <SocialIcon href="https://www.facebook.com/people/AFEMA-Sigorta/61574483662880/?locale=tr_TR" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></SocialIcon>
               <SocialIcon href="https://www.instagram.com/afemasigorta/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></SocialIcon>
-              <SocialIcon href="#" aria-label="LinkedIn"><FaLinkedinIn /></SocialIcon>
             </SocialLinks>
           </FooterColumn>
           
