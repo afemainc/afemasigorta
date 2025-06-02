@@ -6,6 +6,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import FloatingContactButtons from './components/FloatingContactButtons';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <About />
       <Contact />
       <Footer />
+      <FloatingContactButtons />
     </>
   );
 }

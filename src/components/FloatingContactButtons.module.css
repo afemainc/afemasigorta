@@ -1,0 +1,40 @@
+.container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Make buttons square */
+  height: 50px; /* Make buttons square */
+  border-radius: 50%; /* Make buttons round */
+  color: white;
+  text-decoration: none;
+  font-size: 24px; /* Increase icon size */
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.button svg {
+  margin: 0; /* Remove default margin if any */
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+/* Example colors - adjust as needed */
+.container a:nth-child(1) { /* Call button */
+  background-color: #007bff; /* Example blue */
+}
+
+.container a:nth-child(2) { /* WhatsApp button */
+  background-color: #25D366; /* WhatsApp green */
+}
